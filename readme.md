@@ -1,7 +1,14 @@
 # ui5learning
 
-Insert the purpose of this project and some interesting infos here
+Demo-Project to learn UI5
 
-## Credits
+## UI5-Extensions
 
-This project has been generated with 💙 and [easy-ui5](https://github.com/SAP)
+- UI5 Explorer | Michal Kozubik
+- UI5 Language Assistant | SAP OSS
+- XML Toolkit | SAP OSS
+- SAP Fiori Tools - Extension Pack | SAP SE
+
+## UI5 References
+[OpenUI5 Documentation](https://openui5.hana.ondemand.com/controls)
+[Easy-UI5-Generator](https://github.com/SAP/generator-easy-ui5)
