@@ -1,6 +1,6 @@
-# ui5learning
+# UI5-Learning
 
-Demo-Project to learn UI5
+Demo-Project for learn UI5
 
 ## UI5-Extensions
 
@@ -10,5 +10,6 @@ Demo-Project to learn UI5
 - SAP Fiori Tools - Extension Pack | SAP SE
 
 ## UI5 References
-[OpenUI5 Documentation](https://openui5.hana.ondemand.com/controls)
-[Easy-UI5-Generator](https://github.com/SAP/generator-easy-ui5)
+- [OpenUI5 Documentation](https://openui5.hana.ondemand.com/controls)
+- [Easy-UI5-Generator](https://github.com/SAP/generator-easy-ui5)
+- [Fiori Design Guidelines](https://experience.sap.com/fiori-design-web/)
