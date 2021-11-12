@@ -1,4 +1,4 @@
-<mvc:View
+<mvc:View xmlns:widgets="sap.ui.integration.widgets"
     controllerName="com.myorg.ui5learning.controller.MainView"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
@@ -8,10 +8,38 @@
         <App id="app">
             <pages>
                 <Page id="page" title="{i18n>appTitle}">
-                    <headerContent>
-                        <Button text="Test" />
-                    </headerContent>
-                    <content />
+                    <content>
+                        <Panel headerText="{i18n>panelIntroductionTitle}" width="auto" class="sapUiResponsiveMargin">
+                            <content>
+                                <FlexBox
+                                    alignItems="Center">
+                                    <Image src="./img/blue_ui5.svg" width="50px"></Image>
+                                    <Text class="sapUiSmallMarginBegin" text="This is a demo project to learn some UI5. Some more Text so it looks cooler. &#x0A;
+                                                Lorem ipsum dolor sit amet, 
+                                                consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, 
+                                                sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, 
+                                                o sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                                                sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                                                At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. ">
+                                    </Text>
+                                </FlexBox>
+                                <List 
+                                    headerText="Topics"
+                                    items="{data>Topics/}" >
+                                <StandardListItem
+                                    title="data>Name"/>
+                                </List>
+                            </content>
+                        </Panel>
+                        <Panel headerText="{i18n>panelListTitle}" width="auto" class="sapUiResponsiveMargin">
+                            <FlexBox 
+                                height="50px"
+                                alignItems="Center"
+                                justifyContent="Center">
+                                <Button text="{i18n>buttonListNavigation}" width="200px" press="onPressNavigateToList" />
+                            </FlexBox>
+                        </Panel>
+                    </content>
                 </Page>
             </pages>
         </App>
