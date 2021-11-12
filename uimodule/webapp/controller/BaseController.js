@@ -3,18 +3,16 @@ sap.ui.define(
         "sap/ui/core/mvc/Controller",
         "sap/ui/core/routing/History",
         "sap/ui/core/UIComponent",
-        "com/myorg/ui5learning/model/formatter"
     ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller 
      * @param {typeof sap.ui.core.routing.History} History 
      * @param {typeof sap.ui.core.UIComponent} UIComponent 
      */
-    function (Controller, History, UIComponent, formatter) {
+    function (Controller, History, UIComponent, ) {
         "use strict";
 
         return Controller.extend("com.myorg.ui5learning.controller.BaseController", {
-            formatter: formatter,
 
             /**
              * Convenience method for getting the view model by name in every controller of the application.

@@ -1,4 +1,4 @@
-specVersion: "2.2"
+specVersion: "2.6"
 metadata:
   name: ui5learning_uimodule
 type: application
@@ -8,7 +8,7 @@ resources:
       webapp: uimodule/webapp
 framework:
   name: OpenUI5
-  version: 1.84.0
+  version: 1.95.0
   libraries:
     - name: sap.ui.core
     - name: sap.m
