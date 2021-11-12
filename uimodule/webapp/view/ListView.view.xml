@@ -1,0 +1,23 @@
+<mvc:View xmlns:widgets="sap.ui.integration.widgets"
+    controllerName="com.myorg.ui5learning.controller.ListView"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <Page 
+        id="page"
+        title="{i18n>appTitle}"
+        showNavButton="true"
+        navButtonPress="onNavBack">
+        <content>
+            <List 
+                class="sapUiResponsiveMargin"
+                items="{
+                    path: 'characters>/'
+                }" >
+                <StandardListItem
+                    title="{characters>name}"/>
+            </List>
+        </content>
+    </Page>
+</mvc:View>

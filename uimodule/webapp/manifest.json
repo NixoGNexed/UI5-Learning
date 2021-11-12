@@ -66,19 +66,32 @@
       "routes": [
         {
           "name": "RouteMainView",
-          "pattern": "RouteMainView",
+          "pattern": "",
           "target": [
             "TargetMainView"
+          ]
+        },
+        {
+          "name": "RouteListView",
+          "pattern": "RouteListView",
+          "target": [
+            "TargetListView"
           ]
         }
       ],
       "targets": {
         "TargetMainView": {
           "viewType": "XML",
+          "viewLevel": 1,
           "transition": "slide",
-          "clearControlAggregation": false,
-          "viewId": "MainView",
           "viewName": "MainView"
+        },
+        "TargetListView": {
+          "viewType": "XML",
+          "viewLevel": 2,
+          "transition": "slide",
+          "viewId": "ListView",
+          "viewName": "ListView"
         }
       }
     },
