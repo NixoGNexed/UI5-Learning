@@ -1,13 +1,20 @@
 {
     "Topics": [
         {
-            "Name": "Create UI5-App"
+            "Name": "Create UI5-App",
+            "Description": "Learn what to keep in mind while creating a new Application"
         },
         {
-            "Name": "Work with O-Data"
+            "Name": "Learn about Models",
+            "Description": "Get to know how to use models in UI5"
         },
         {
-            "Name": "Try out Web-Components"
+            "Name": "Work with O-Data",
+            "Description": "Start creating OData-Services"
+        },
+        {
+            "Name": "Try out Web Components",
+            "Description": "Learn about the super awesome Web Components"
         }
     ]
 }
