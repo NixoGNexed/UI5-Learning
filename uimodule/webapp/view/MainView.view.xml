@@ -8,7 +8,7 @@
         <App id="app">
             <pages>
                 <Page id="page" title="{i18n>appTitle}">
-+                   <headerContent>
+                    <headerContent>
                         <Button text="Switch Theme" icon="sap-icon://palette" press="onPressChangeTheme"></Button>
                     </headerContent>
                     <content>
