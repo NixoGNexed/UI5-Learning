@@ -1,9 +1,9 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller",
+    "com/myorg/ui5learning/controller/BaseController",
     'sap/ui/model/json/JSONModel'
 ],
     /**
-     * @param {typeof sap.ui.core.mvc.Controller} Controller
+     * @param {typeof sap.ui.core.mvc.Controller} BaseController
      * @param {typeof sap.ui.model.json.JSONModel} JSONModel
      */
     function (Controller, JSONModel) {
@@ -12,27 +12,21 @@ sap.ui.define([
         return Controller.extend("com.myorg.ui5learning.controller.MainView", {
 
             onInit: function () {
-                var oData = {
-                    "data": [
-                        {
-                            "Name": "Create UI5-App"
-                        },
-                        {
-                            "Name": "Work with O-Data"
-                        },
-                        {
-                            "Name": "Try out Web-Components"
-                        }
-                    ]
+                var oModel = new JSONModel("/models/topics.json");
+                this.getView().setModel(oModel, "topics");
+            },
+
+            onPressChangeTheme: function () {
+                if(sap.ui.getCore().getConfiguration().getTheme() === "sap_fiori_3_dark") {
+                    sap.ui.getCore().applyTheme("sap_fiori_3");
+                } else {
+                    sap.ui.getCore().applyTheme("sap_fiori_3_dark");
                 }
-
-
-                var oModel = new JSONModel(oData);
-                this.getView().setModel(oModel, "data");
             },
 
             onPressNavigateToList: function () {
+                this.navTo("RouteListView");
+            },
 
-            }
         });
     });
