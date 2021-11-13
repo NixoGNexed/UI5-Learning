@@ -21,6 +21,12 @@ sap.ui.define([
                 oModel.attachRequestCompleted(function() {
                     var data = oModel.getData();
                     data = data.filter(x => x.hasOwnProperty('name'));
+
+                    // remove all character after .png form image url
+                    data.forEach(element => {
+                        element.image = element.image.substring(0, element.image.indexOf('.png') + 4);
+                    });
+
                     this.getView().getModel('characters').setData(data);
                 }.bind(this))
             },

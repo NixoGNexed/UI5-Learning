@@ -12,11 +12,14 @@
         <content>
             <List 
                 class="sapUiResponsiveMargin"
+                headerText="{i18n>listViewListTitle}"
                 items="{
                     path: 'characters>/'
                 }" >
                 <StandardListItem
-                    title="{characters>name}"/>
+                    icon="{characters>image}"
+                    title="{characters>name}"
+                    description="{characters>bio/ethnicity}"/>
             </List>
         </content>
     </Page>
