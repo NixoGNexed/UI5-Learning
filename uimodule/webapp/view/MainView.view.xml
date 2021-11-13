@@ -24,7 +24,7 @@
                                         }" >
                                         <StandardListItem
                                             title="{topics>Name}"
-                                            description="{topics>bio/ethnicity}"/>
+                                            description="{topics>Description}"/>
                                     </List>
                                 </FlexBox>
                             </content>

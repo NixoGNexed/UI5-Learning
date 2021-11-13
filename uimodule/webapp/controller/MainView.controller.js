@@ -14,6 +14,10 @@ sap.ui.define([
             onInit: function () {
                 var oModel = new JSONModel("/models/topics.json");
                 this.getView().setModel(oModel, "topics");
+
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    sap.ui.getCore().applyTheme("sap_fiori_3_dark");
+                }
             },
 
             onPressChangeTheme: function () {
