@@ -12,7 +12,7 @@
                         <Button text="Switch Theme" icon="sap-icon://palette" press="onPressChangeTheme"></Button>
                     </headerContent>
                     <content>
-                        <Panel headerText="{i18n>panelIntroductionTitle}" width="auto" class="sapUiResponsiveMargin">
+                        <Panel headerText="{i18n>mainViewPanelIntroductionTitle}" width="auto" class="sapUiResponsiveMargin">
                             <content>
                                 <FlexBox
                                     alignItems="Center">
@@ -24,17 +24,17 @@
                                         }" >
                                         <StandardListItem
                                             title="{topics>Name}"
-                                            description="{topics>Description}"/>
+                                            description="{topics>bio/ethnicity}"/>
                                     </List>
                                 </FlexBox>
                             </content>
                         </Panel>
-                        <Panel headerText="{i18n>panelListTitle}" width="auto" class="sapUiResponsiveMargin">
+                        <Panel headerText="{i18n>mainViewPanelListTitle}" width="auto" class="sapUiResponsiveMargin">
                             <FlexBox 
                                 height="50px"
                                 alignItems="Center"
                                 justifyContent="Center">
-                                <Button text="{i18n>buttonListNavigation}" width="200px" press="onPressNavigateToList" />
+                                <Button text="{i18n>mainViewButtonListNavigation}" width="200px" press="onPressNavigateToList" />
                             </FlexBox>
                         </Panel>
                     </content>
