@@ -15,7 +15,8 @@
                         <Panel headerText="{i18n>mainViewPanelIntroductionTitle}" width="auto" class="sapUiResponsiveMargin">
                             <content>
                                 <FlexBox
-                                    alignItems="Center">
+                                    alignItems="Center"
+                                    direction="Column">
                                     <Image src="./img/blue_ui5.svg" width="100px"></Image>
                                     <List 
                                         class="sapUiResponsiveMargin"
@@ -31,9 +32,14 @@
                         </Panel>
                         <Panel headerText="{i18n>mainViewPanelListTitle}" width="auto" class="sapUiResponsiveMargin">
                             <FlexBox 
-                                height="50px"
+                                height="auto"
                                 alignItems="Center"
-                                justifyContent="Center">
+                                justifyContent="Center"
+                                direction="Column">
+                                <Image 
+                                    src="./img/atla.png"
+                                    width="35vw"
+                                    class="sapUiMediumMarginBottom"></Image>
                                 <Button text="{i18n>mainViewButtonListNavigation}" width="200px" press="onPressNavigateToList" />
                             </FlexBox>
                         </Panel>
