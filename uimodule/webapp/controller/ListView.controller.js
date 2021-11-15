@@ -1,14 +1,15 @@
 sap.ui.define([
     "com/myorg/ui5learning/controller/BaseController",
     'sap/ui/model/json/JSONModel',
-    "sap/ui/core/routing/History"
+    "sap/ui/core/routing/History",
+    "sap/ui/util/Storage"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} BaseController
      * @param {typeof sap.ui.model.json.JSONModel} JSONModel
      * @param {typeof sap.ui.core.routing.History} History
      */
-    function (Controller, JSONModel, History) {
+    function (Controller, JSONModel, History, Storage) {
         "use strict";
 
         return Controller.extend("com.myorg.ui5learning.controller.ListView", {
@@ -17,17 +18,25 @@ sap.ui.define([
                 var oModel = new JSONModel();
                 this.getView().setModel(oModel, 'characters');
 
+                var storage = new Storage(Storage.Type.session, "listViewStorage")
+                var localStorageContent = storage.get("listViewData");
+
+                if(localStorageContent) {
+                    this.getView().getModel('characters').setData(localStorageContent);
+                    return;
+                } 
+
                 oModel.loadData('https://api.sampleapis.com/avatar/characters');
                 oModel.attachRequestCompleted(function() {
-                    var data = oModel.getData();
-                    data = data.filter(x => x.hasOwnProperty('name'));
+                    var requestedContent = oModel.getData();
+                    requestedContent = requestedContent.filter(x => x.hasOwnProperty('name'));
 
                     // remove all character after .png form image url
-                    data.forEach(element => {
+                    requestedContent.forEach(element => {
                         element.image = element.image.substring(0, element.image.indexOf('.png') + 4);
                     });
-
-                    this.getView().getModel('characters').setData(data);
+                    storage.put("listViewData", requestedContent)
+                    this.getView().getModel('characters').setData(requestedContent);
                 }.bind(this))
             },
 
