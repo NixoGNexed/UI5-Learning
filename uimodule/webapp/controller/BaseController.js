@@ -3,16 +3,19 @@ sap.ui.define(
         "sap/ui/core/mvc/Controller",
         "sap/ui/core/routing/History",
         "sap/ui/core/UIComponent",
+        "com/myorg/ui5learning/model/formatter"
     ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller 
      * @param {typeof sap.ui.core.routing.History} History 
      * @param {typeof sap.ui.core.UIComponent} UIComponent 
      */
-    function (Controller, History, UIComponent, ) {
+    function (Controller, History, UIComponent, formatter ) {
         "use strict";
 
         return Controller.extend("com.myorg.ui5learning.controller.BaseController", {
+
+            formatter: formatter,
 
             /**
              * Convenience method for getting the view model by name in every controller of the application.
@@ -29,7 +32,6 @@ sap.ui.define(
              * @public
              * @param {sap.ui.model.Model} oModel the model instance
              * @param {string} sName the model name
-             * @returns {sap.ui.mvc.View} the view instance
              */
             setModel: function (oModel, sName) {
                 return this.getView().setModel(oModel, sName);
@@ -41,6 +43,7 @@ sap.ui.define(
              * @returns {sap.ui.model.resource.ResourceModel} the resourceModel of the component
              */
             getResourceBundle: function () {
+                // @ts-ignore
                 return this.getOwnerComponent().getModel("i18n").getResourceBundle();
             },
 
@@ -52,7 +55,7 @@ sap.ui.define(
              * @param {boolean} pbReplace? Defines if the hash should be replaced (no browser history entry) or set (browser history entry)
              */
             navTo: function (psTarget, pmParameters, pbReplace) {
-                this.getRouter().navTo(psTarget, pmParameters, pbReplace);
+                this.getRouter().navTo(psTarget, pmParameters, {}, pbReplace);
             },
 
             getRouter: function () {
@@ -65,7 +68,7 @@ sap.ui.define(
                 if (sPreviousHash !== undefined) {
                     window.history.back();
                 } else {
-                    this.getRouter().navTo("appHome", {}, true /*no history*/);
+                    this.getRouter().navTo("appHome", {}, {}, true /*no history*/);
                 }
             }
         });
