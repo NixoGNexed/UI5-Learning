@@ -12,6 +12,7 @@
         <content>
             <List 
                 class="sapUiResponsiveMargin"
+                width="auto"
                 headerText="{i18n>listViewListTitle}"
                 items="{
                     path: 'characters>/'
@@ -19,7 +20,9 @@
                 <StandardListItem
                     icon="{characters>image}"
                     title="{characters>name}"
-                    description="{characters>bio/ethnicity}"/>
+                    infoState="{= ${characters>physicalDescription/gender} === 'Male' ? 'Information' : 'Error'}"
+                    description="{characters>bio/ethnicity}"
+                    info="{characters>physicalDescription/gender}"/>
             </List>
         </content>
     </Page>
