@@ -73,9 +73,16 @@
         },
         {
           "name": "RouteListView",
-          "pattern": "RouteListView",
+          "pattern": "characters",
           "target": [
             "TargetListView"
+          ]
+        },
+        {
+          "name": "RouteDetailView",
+          "pattern": "characters/{character}",
+          "target": [
+            "TargetDetailView"
           ]
         }
       ],
@@ -92,6 +99,13 @@
           "transition": "slide",
           "viewId": "ListView",
           "viewName": "ListView"
+        },
+        "TargetDetailView": {
+          "viewType": "XML",
+          "viewLevel": 3,
+          "transition": "slide",
+          "viewId": "DetailView",
+          "viewName": "DetailView"
         }
       }
     },

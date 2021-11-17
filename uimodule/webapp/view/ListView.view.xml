@@ -22,7 +22,9 @@
                     title="{characters>name}"
                     infoState="{= ${characters>physicalDescription/gender} === 'Male' ? 'Information' : 'Error'}"
                     description="{characters>bio/ethnicity}"
-                    info="{characters>physicalDescription/gender}"/>
+                    info="{characters>physicalDescription/gender}"
+                    type="Navigation"
+                    press="onPressOpenDetails(${characters>})"/>
             </List>
         </content>
     </Page>

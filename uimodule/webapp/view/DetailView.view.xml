@@ -1,0 +1,21 @@
+<mvc:View xmlns:form="sap.ui.layout.form" xmlns:widgets="sap.ui.integration.widgets"
+    controllerName="com.myorg.ui5learning.controller.DetailView"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <Page 
+        id="page"
+        title="{i18n>appTitle}"
+        showNavButton="true"
+        navButtonPress="onNavBack">
+        <content>
+            <form:SimpleForm >
+                <Label text="Name"></Label>
+                <Text text="{details>/name}"></Text>
+                <Label text="Age"></Label>
+                <Text text="{details>/bio/ages}"></Text>
+            </form:SimpleForm>
+        </content>
+    </Page>
+</mvc:View>

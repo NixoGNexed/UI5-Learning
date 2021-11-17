@@ -49,6 +49,18 @@ sap.ui.define([
                 } else {
                     this.navTo("RouteMainView", {}, true);
                 }
+            },
+
+            onPressOpenDetails(characterDetails) {
+                var oModel = new JSONModel(characterDetails);
+                // sap.ui.getCore().setModel(oModel, "details");
+                this.getOwnerComponent().setModel(oModel, "details"); 
+                // sap.ui.getCore().setModel(oModel, "details");
+                // characterDetails = JSON.stringify(characterDetails);
+
+                this.navTo("RouteDetailView", {
+                    character : characterDetails.name
+                });
             }
 
         });
