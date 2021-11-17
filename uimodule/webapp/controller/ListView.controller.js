@@ -26,15 +26,13 @@ sap.ui.define([
                     return;
                 } 
 
-                oModel.loadData('https://api.sampleapis.com/avatar/characters');
+                oModel.loadData('http://hp-api.herokuapp.com/api/characters');
                 oModel.attachRequestCompleted(function() {
                     var requestedContent = oModel.getData();
-                    requestedContent = requestedContent.filter(x => x.hasOwnProperty('name'));
 
-                    // remove all character after .png form image url
-                    requestedContent.forEach(element => {
-                        element.image = element.image.substring(0, element.image.indexOf('.png') + 4);
-                    });
+                    // only show entries with an image
+                    requestedContent = requestedContent.filter(x => x.image);
+
                     storage.put("listViewData", requestedContent)
                     this.getView().getModel('characters').setData(requestedContent);
                 }.bind(this))

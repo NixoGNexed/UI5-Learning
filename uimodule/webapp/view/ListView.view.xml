@@ -20,9 +20,9 @@
                 <StandardListItem
                     icon="{characters>image}"
                     title="{characters>name}"
-                    infoState="{= ${characters>physicalDescription/gender} === 'Male' ? 'Information' : 'Error'}"
-                    description="{characters>bio/ethnicity}"
-                    info="{characters>physicalDescription/gender}"
+                    infoState="{= ${characters>alive} === true ? 'Information' : 'Error'}"
+                    description="{characters>actor}"
+                    info="{= ${characters>alive} === true ? 'Alive' : 'Dead'}"
                     type="Navigation"
                     press="onPressOpenDetails(${characters>})"/>
             </List>
