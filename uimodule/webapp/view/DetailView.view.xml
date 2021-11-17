@@ -13,8 +13,10 @@
             <form:SimpleForm >
                 <Label text="Name"></Label>
                 <Text text="{details>/name}"></Text>
-                <Label text="Age"></Label>
-                <Text text="{details>/bio/ages}"></Text>
+                <Label text="Actor"></Label>
+                <Text text="{details>/actor}"></Text>
+                <Label text="Birth Date"></Label>
+                <Text text="{details>/dateOfBirth}"></Text>
             </form:SimpleForm>
         </content>
     </Page>
