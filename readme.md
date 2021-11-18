@@ -1,6 +1,6 @@
 # UI5-Learning
 
-Demo-Project for learn UI5
+Demo-Project to learn some UI5
 
 ## UI5-Extensions
 

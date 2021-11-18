@@ -9,7 +9,7 @@
             <pages>
                 <Page id="page" title="{i18n>appTitle}">
                     <headerContent>
-                        <Button text="Switch Theme" icon="sap-icon://palette" press="onPressChangeTheme"></Button>
+                        <Button text="{i18n>mainViewButtonTheme}" icon="sap-icon://palette" press="onPressChangeTheme"></Button>
                     </headerContent>
                     <content>
                         <Panel headerText="{i18n>mainViewPanelIntroductionTitle}" width="auto" class="sapUiResponsiveMargin">
@@ -37,8 +37,8 @@
                                 justifyContent="Center"
                                 direction="Column">
                                 <Image 
-                                    src="./img/atla.png"
-                                    width="35vw"
+                                    src="./img/harrypotter.png"
+                                    width="20vw"
                                     class="sapUiMediumMarginBottom"></Image>
                                 <Button text="{i18n>mainViewButtonListNavigation}" width="200px" press="onPressNavigateToList" />
                             </FlexBox>
