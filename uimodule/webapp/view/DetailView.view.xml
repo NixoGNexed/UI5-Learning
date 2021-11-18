@@ -22,14 +22,9 @@
 					<m:HBox>
 						<m:VBox>
 							<m:Title text="{details>/name}" wrapping="true"/>
-							<!-- <m:Label text="House {details>/house}"/> -->
 						</m:VBox>
 					</m:HBox>
 				</snappedHeading>
-
-				<!-- <expandedContent>
-					<m:Label text="House {details>/house}"/>
-				</expandedContent> -->
 
 				<snappedTitleOnMobile>
 					<m:Title text="{details>/name}"/>
@@ -41,16 +36,16 @@
             <m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
                 <m:Image src="{details>/image}" width="70px" class="sapUiSmallMarginEnd"></m:Image>
                 <m:Link 
-                    text="Actor: {details>/actor}"
+                    text="{i18n>detailViewHeaderActorLabel} {details>/actor}"
                     target="_blank"
                     href="http://www.google.com/search?q={details>/actor}"></m:Link>
             </m:FlexBox>
         </headerContent>
 
         <sections>
-            <ObjectPageSection titleUppercase="false" title="WhereToUseThis?1">
+            <ObjectPageSection titleUppercase="false">
                 <subSections>
-                    <ObjectPageSubSection title="Information">
+                    <ObjectPageSubSection title="{i18n>{i18n>appTitle}}">
                         <blocks>
                             <form:SimpleForm
                                 layout="ResponsiveGridLayout"
@@ -58,21 +53,21 @@
                                 columnsL="2"
                                 columnsM="1">
                                 <form:content>
-                                    <core:Title text="Personal Information"></core:Title>
-                                    <m:Label text="Name"></m:Label>
+                                    <core:Title text="{i18n>detailViewSubsectionInformationPersonalInformation}"></core:Title>
+                                    <m:Label text="{i18n>detailViewSubsectionInformationName}"></m:Label>
                                     <m:Text text="{details>/name}"></m:Text>
 
-                                    <m:Label text="Birthdate"></m:Label>
+                                    <m:Label text="{i18n>detailViewSubsectionInformationBirthdate}"></m:Label>
                                     <m:Text text="{details>/dateOfBirth}"></m:Text>
 
-                                    <m:Label text="House"></m:Label>
+                                    <m:Label text="{i18n>detailViewSubsectionInformationHouse}"></m:Label>
                                     <m:Text text="{details>/house}"></m:Text>
 
-                                    <core:Title text="Gear"></core:Title>
-                                    <m:Label text="Wand"></m:Label>
+                                    <core:Title text="{i18n>detailViewSubsectionInformationGear}"></core:Title>
+                                    <m:Label text="{i18n>detailViewSubsectionInformationWand}"></m:Label>
                                     <m:Text text="{details>/wand/core}"></m:Text>
 
-                                    <m:Label text="Patronus"></m:Label>
+                                    <m:Label text="{i18n>detailViewSubsectionInformationPatronus}"></m:Label>
                                     <m:Text text="{details>/patronus}"></m:Text>
                                 </form:content>
                             </form:SimpleForm>
@@ -80,9 +75,9 @@
                     </ObjectPageSubSection>
                 </subSections>
             </ObjectPageSection>
-            <ObjectPageSection titleUppercase="false" title="WhereToUseThis?2">
+            <ObjectPageSection titleUppercase="false">
                 <subSections>
-                    <ObjectPageSubSection title="References">
+                    <ObjectPageSubSection title="{i18n>detailViewSubsectionReferences}">
                         <blocks>
                             <m:Text text="Show here some external sources or smth"></m:Text>
                         </blocks>
@@ -92,21 +87,4 @@
         </sections>
     </ObjectPageLayout>
 </m:Page>
-	
-    <!-- <Page 
-        id="page"
-        title="{i18n>appTitle}"
-        showNavButton="true"
-        navButtonPress="onNavBack">
-        <content>
-            <form:SimpleForm >
-                <Label text="Name"></Label>
-                <Text text="{details>/name}"></Text>
-                <Label text="Actor"></Label>
-                <Text text="{details>/actor}"></Text>
-                <Label text="Birth Date"></Label>
-                <Text text="{details>/dateOfBirth}"></Text>
-            </form:SimpleForm>
-        </content>
-    </Page> -->
 </mvc:View>
