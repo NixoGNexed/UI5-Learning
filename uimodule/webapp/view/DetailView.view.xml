@@ -2,9 +2,98 @@
     controllerName="com.myorg.ui5learning.controller.DetailView"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
-    xmlns="sap.m"
+	xmlns="sap.uxap"
+	xmlns:m="sap.m"
+	xmlns:core="sap.ui.core"
 >
-    <Page 
+<m:Page
+    id="page"
+    title="{i18n>appTitle}"
+    showNavButton="true"
+    navButtonPress="onNavBack">
+    <ObjectPageLayout id="ObjectPageLayout" upperCaseAnchorBar="false">
+    	<headerTitle>
+			<ObjectPageDynamicHeaderTitle>
+				<expandedHeading>
+					<m:Title text="{details>/name}" wrapping="true" />
+				</expandedHeading>
+
+				<snappedHeading>
+					<m:HBox>
+						<m:VBox>
+							<m:Title text="{details>/name}" wrapping="true"/>
+							<!-- <m:Label text="House {details>/house}"/> -->
+						</m:VBox>
+					</m:HBox>
+				</snappedHeading>
+
+				<!-- <expandedContent>
+					<m:Label text="House {details>/house}"/>
+				</expandedContent> -->
+
+				<snappedTitleOnMobile>
+					<m:Title text="{details>/name}"/>
+				</snappedTitleOnMobile>
+			</ObjectPageDynamicHeaderTitle>
+		</headerTitle>
+
+        <headerContent>
+            <m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
+                <m:Image src="{details>/image}" width="70px" class="sapUiSmallMarginEnd"></m:Image>
+                <m:Link 
+                    text="Actor: {details>/actor}"
+                    target="_blank"
+                    href="http://www.google.com/search?q={details>/actor}"></m:Link>
+            </m:FlexBox>
+        </headerContent>
+
+        <sections>
+            <ObjectPageSection titleUppercase="false" title="WhereToUseThis?1">
+                <subSections>
+                    <ObjectPageSubSection title="Information">
+                        <blocks>
+                            <form:SimpleForm
+                                layout="ResponsiveGridLayout"
+                                columnsXL="2"
+                                columnsL="2"
+                                columnsM="1">
+                                <form:content>
+                                    <core:Title text="Personal Information"></core:Title>
+                                    <m:Label text="Name"></m:Label>
+                                    <m:Text text="{details>/name}"></m:Text>
+
+                                    <m:Label text="Birthdate"></m:Label>
+                                    <m:Text text="{details>/dateOfBirth}"></m:Text>
+
+                                    <m:Label text="House"></m:Label>
+                                    <m:Text text="{details>/house}"></m:Text>
+
+                                    <core:Title text="Gear"></core:Title>
+                                    <m:Label text="Wand"></m:Label>
+                                    <m:Text text="{details>/wand/core}"></m:Text>
+
+                                    <m:Label text="Patronus"></m:Label>
+                                    <m:Text text="{details>/patronus}"></m:Text>
+                                </form:content>
+                            </form:SimpleForm>
+                        </blocks>
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+            <ObjectPageSection titleUppercase="false" title="WhereToUseThis?2">
+                <subSections>
+                    <ObjectPageSubSection title="References">
+                        <blocks>
+                            <m:Text text="Show here some external sources or smth"></m:Text>
+                        </blocks>
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+        </sections>
+    </ObjectPageLayout>
+</m:Page>
+	
+    <!-- <Page 
         id="page"
         title="{i18n>appTitle}"
         showNavButton="true"
@@ -19,5 +108,5 @@
                 <Text text="{details>/dateOfBirth}"></Text>
             </form:SimpleForm>
         </content>
-    </Page>
+    </Page> -->
 </mvc:View>
