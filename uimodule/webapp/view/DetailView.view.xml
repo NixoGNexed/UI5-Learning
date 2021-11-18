@@ -45,7 +45,7 @@
         <sections>
             <ObjectPageSection titleUppercase="false">
                 <subSections>
-                    <ObjectPageSubSection title="{i18n>{i18n>appTitle}}">
+                    <ObjectPageSubSection title="{i18n>detailViewSubsectionInformation}">
                         <blocks>
                             <form:SimpleForm
                                 layout="ResponsiveGridLayout"
