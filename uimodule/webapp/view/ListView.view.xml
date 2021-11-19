@@ -13,7 +13,7 @@
             <List 
                 class="sapUiResponsiveMargin"
                 width="auto"
-                headerText="{i18n>listViewListTitle}"
+                headerText="{i18n>listTitle}"
                 items="{
                     path: 'characters>/'
                 }" >

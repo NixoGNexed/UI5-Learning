@@ -2,20 +2,89 @@
     controllerName="com.myorg.ui5learning.controller.DetailView"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
-    xmlns="sap.m"
+	xmlns="sap.uxap"
+	xmlns:m="sap.m"
+	xmlns:core="sap.ui.core"
 >
-    <Page 
-        id="page"
-        title="{i18n>appTitle}"
-        showNavButton="true"
-        navButtonPress="onNavBack">
-        <content>
-            <form:SimpleForm >
-                <Label text="Name"></Label>
-                <Text text="{details>/name}"></Text>
-                <Label text="Age"></Label>
-                <Text text="{details>/bio/ages}"></Text>
-            </form:SimpleForm>
-        </content>
-    </Page>
+<m:Page
+    id="page"
+    title="{i18n>appTitle}"
+    showNavButton="true"
+    navButtonPress="onNavBack">
+    <ObjectPageLayout id="ObjectPageLayout" upperCaseAnchorBar="false">
+    	<headerTitle>
+			<ObjectPageDynamicHeaderTitle>
+				<expandedHeading>
+					<m:Title text="{details>/name}" wrapping="true" />
+				</expandedHeading>
+
+				<snappedHeading>
+					<m:HBox>
+						<m:VBox>
+							<m:Title text="{details>/name}" wrapping="true"/>
+						</m:VBox>
+					</m:HBox>
+				</snappedHeading>
+
+				<snappedTitleOnMobile>
+					<m:Title text="{details>/name}"/>
+				</snappedTitleOnMobile>
+			</ObjectPageDynamicHeaderTitle>
+		</headerTitle>
+
+        <headerContent>
+            <m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
+                <m:Image src="{details>/image}" width="70px" class="sapUiSmallMarginEnd"></m:Image>
+                <m:Link 
+                    text="{i18n>headerActorLabel} {details>/actor}"
+                    target="_blank"
+                    href="http://www.google.com/search?q={details>/actor}"></m:Link>
+            </m:FlexBox>
+        </headerContent>
+
+        <sections>
+            <ObjectPageSection titleUppercase="false">
+                <subSections>
+                    <ObjectPageSubSection title="{i18n>subsectionInformation}">
+                        <blocks>
+                            <form:SimpleForm
+                                layout="ResponsiveGridLayout"
+                                columnsXL="2"
+                                columnsL="2"
+                                columnsM="1">
+                                <form:content>
+                                    <core:Title text="{i18n>titlePersonalInformation}"></core:Title>
+                                    <m:Label text="{i18n>labelName}"></m:Label>
+                                    <m:Text text="{details>/name}"></m:Text>
+
+                                    <m:Label text="{i18n>labelBirthdate}"></m:Label>
+                                    <m:Text text="{details>/dateOfBirth}"></m:Text>
+
+                                    <m:Label text="{i18n>labelHouse}"></m:Label>
+                                    <m:Text text="{details>/house}"></m:Text>
+
+                                    <core:Title text="{i18n>titleGear}"></core:Title>
+                                    <m:Label text="{i18n>labelWand}"></m:Label>
+                                    <m:Text text="{details>/wand/core}"></m:Text>
+
+                                    <m:Label text="{i18n>labelPatronus}"></m:Label>
+                                    <m:Text text="{details>/patronus}"></m:Text>
+                                </form:content>
+                            </form:SimpleForm>
+                        </blocks>
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+            <ObjectPageSection titleUppercase="false">
+                <subSections>
+                    <ObjectPageSubSection title="{i18n>subsectionReferences}">
+                        <blocks>
+                            <m:Text text="Show here some external sources or smth"></m:Text>
+                        </blocks>
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+        </sections>
+    </ObjectPageLayout>
+</m:Page>
 </mvc:View>
