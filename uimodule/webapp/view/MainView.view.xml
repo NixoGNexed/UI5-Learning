@@ -9,10 +9,10 @@
             <pages>
                 <Page id="page" title="{i18n>appTitle}">
                     <headerContent>
-                        <Button text="{i18n>mainViewButtonTheme}" icon="sap-icon://palette" press="onPressChangeTheme"></Button>
+                        <Button text="{i18n>buttonTheme}" icon="sap-icon://palette" press="onPressChangeTheme"></Button>
                     </headerContent>
                     <content>
-                        <Panel headerText="{i18n>mainViewPanelIntroductionTitle}" width="auto" class="sapUiResponsiveMargin">
+                        <Panel headerText="{i18n>panelIntroductionTitle}" width="auto" class="sapUiResponsiveMargin">
                             <content>
                                 <FlexBox
                                     alignItems="Center"
@@ -30,7 +30,7 @@
                                 </FlexBox>
                             </content>
                         </Panel>
-                        <Panel headerText="{i18n>mainViewPanelListTitle}" width="auto" class="sapUiResponsiveMargin">
+                        <Panel headerText="{i18n>panelListTitle}" width="auto" class="sapUiResponsiveMargin">
                             <FlexBox 
                                 height="auto"
                                 alignItems="Center"
@@ -40,7 +40,7 @@
                                     src="./img/harrypotter.png"
                                     width="20vw"
                                     class="sapUiMediumMarginBottom"></Image>
-                                <Button text="{i18n>mainViewButtonListNavigation}" width="200px" press="onPressNavigateToList" />
+                                <Button text="{i18n>buttonListNavigation}" width="200px" press="onPressNavigateToList" />
                             </FlexBox>
                         </Panel>
                     </content>

@@ -36,7 +36,7 @@
             <m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
                 <m:Image src="{details>/image}" width="70px" class="sapUiSmallMarginEnd"></m:Image>
                 <m:Link 
-                    text="{i18n>detailViewHeaderActorLabel} {details>/actor}"
+                    text="{i18n>headerActorLabel} {details>/actor}"
                     target="_blank"
                     href="http://www.google.com/search?q={details>/actor}"></m:Link>
             </m:FlexBox>
@@ -45,7 +45,7 @@
         <sections>
             <ObjectPageSection titleUppercase="false">
                 <subSections>
-                    <ObjectPageSubSection title="{i18n>detailViewSubsectionInformation}">
+                    <ObjectPageSubSection title="{i18n>subsectionInformation}">
                         <blocks>
                             <form:SimpleForm
                                 layout="ResponsiveGridLayout"
@@ -53,21 +53,21 @@
                                 columnsL="2"
                                 columnsM="1">
                                 <form:content>
-                                    <core:Title text="{i18n>detailViewSubsectionInformationPersonalInformation}"></core:Title>
-                                    <m:Label text="{i18n>detailViewSubsectionInformationName}"></m:Label>
+                                    <core:Title text="{i18n>titlePersonalInformation}"></core:Title>
+                                    <m:Label text="{i18n>labelName}"></m:Label>
                                     <m:Text text="{details>/name}"></m:Text>
 
-                                    <m:Label text="{i18n>detailViewSubsectionInformationBirthdate}"></m:Label>
+                                    <m:Label text="{i18n>labelBirthdate}"></m:Label>
                                     <m:Text text="{details>/dateOfBirth}"></m:Text>
 
-                                    <m:Label text="{i18n>detailViewSubsectionInformationHouse}"></m:Label>
+                                    <m:Label text="{i18n>labelHouse}"></m:Label>
                                     <m:Text text="{details>/house}"></m:Text>
 
-                                    <core:Title text="{i18n>detailViewSubsectionInformationGear}"></core:Title>
-                                    <m:Label text="{i18n>detailViewSubsectionInformationWand}"></m:Label>
+                                    <core:Title text="{i18n>titleGear}"></core:Title>
+                                    <m:Label text="{i18n>labelWand}"></m:Label>
                                     <m:Text text="{details>/wand/core}"></m:Text>
 
-                                    <m:Label text="{i18n>detailViewSubsectionInformationPatronus}"></m:Label>
+                                    <m:Label text="{i18n>labelPatronus}"></m:Label>
                                     <m:Text text="{details>/patronus}"></m:Text>
                                 </form:content>
                             </form:SimpleForm>
@@ -77,7 +77,7 @@
             </ObjectPageSection>
             <ObjectPageSection titleUppercase="false">
                 <subSections>
-                    <ObjectPageSubSection title="{i18n>detailViewSubsectionReferences}">
+                    <ObjectPageSubSection title="{i18n>subsectionReferences}">
                         <blocks>
                             <m:Text text="Show here some external sources or smth"></m:Text>
                         </blocks>
