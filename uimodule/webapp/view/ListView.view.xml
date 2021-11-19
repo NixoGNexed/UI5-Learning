@@ -22,7 +22,7 @@
                     title="{characters>name}"
                     infoState="{= ${characters>alive} === true ? 'Information' : 'Error'}"
                     description="{characters>actor}"
-                    info="{= ${characters>alive} === true ? 'Alive' : 'Dead'}"
+                    info="{= ${characters>alive} === true ? ${i18n>liveStateAlive} : ${i18n>liveStateDead}}"
                     type="Navigation"
                     press="onPressOpenDetails(${characters>name})"/>
             </List>
