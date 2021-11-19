@@ -2,40 +2,18 @@ sap.ui.define([
     "com/myorg/ui5learning/controller/BaseController",
     'sap/ui/model/json/JSONModel',
     "sap/ui/core/routing/History",
-    "sap/ui/util/Storage"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} BaseController
      * @param {typeof sap.ui.model.json.JSONModel} JSONModel
      * @param {typeof sap.ui.core.routing.History} History
      */
-    function (Controller, JSONModel, History, Storage) {
+    function (Controller, JSONModel, History) {
         "use strict";
 
         return Controller.extend("com.myorg.ui5learning.controller.ListView", {
 
             onInit() {
-                var oModel = new JSONModel();
-                this.getView().setModel(oModel, 'characters');
-
-                var storage = new Storage(Storage.Type.session, "listViewStorage")
-                var localStorageContent = storage.get("listViewData");
-
-                if(localStorageContent) {
-                    this.getView().getModel('characters').setData(localStorageContent);
-                    return;
-                } 
-
-                oModel.loadData('http://hp-api.herokuapp.com/api/characters');
-                oModel.attachRequestCompleted(function() {
-                    var requestedContent = oModel.getData();
-
-                    // only show entries with an image
-                    requestedContent = requestedContent.filter(x => x.image);
-
-                    storage.put("listViewData", requestedContent)
-                    this.getView().getModel('characters').setData(requestedContent);
-                }.bind(this))
             },
 
             onNavBack() {
@@ -49,15 +27,9 @@ sap.ui.define([
                 }
             },
 
-            onPressOpenDetails(characterDetails) {
-                var oModel = new JSONModel(characterDetails);
-                // sap.ui.getCore().setModel(oModel, "details");
-                this.getOwnerComponent().setModel(oModel, "details"); 
-                // sap.ui.getCore().setModel(oModel, "details");
-                // characterDetails = JSON.stringify(characterDetails);
-
+            onPressOpenDetails(characterName) {
                 this.navTo("RouteDetailView", {
-                    character : characterDetails.name
+                    character : characterName
                 });
             }
 

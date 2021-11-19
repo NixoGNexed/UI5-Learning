@@ -24,7 +24,7 @@
                     description="{characters>actor}"
                     info="{= ${characters>alive} === true ? 'Alive' : 'Dead'}"
                     type="Navigation"
-                    press="onPressOpenDetails(${characters>})"/>
+                    press="onPressOpenDetails(${characters>name})"/>
             </List>
         </content>
     </Page>
