@@ -2,38 +2,41 @@ sap.ui.define([
     "com/myorg/ui5learning/controller/BaseController",
     "sap/ui/core/routing/History",
     'sap/ui/model/json/JSONModel',
+    'sap/m/MessageToast'
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} BaseController
      * @param {typeof sap.ui.core.routing.History} History
      * @param {typeof sap.ui.model.json.JSONModel} JSONModel
+     * @param {typeof sap.m.MessageToast} MessageToast
      */
-    function (Controller, History, JSONModel) {
+    function (Controller, History, JSONModel, MessageToast) {
         "use strict";
 
         return Controller.extend("com.myorg.ui5learning.controller.ListView", {
 
             onInit() {
-                this.getRouter().attachRouteMatched(this.onRouteMatched, this);
+                this.getRouter().getRoute("RouteDetailView").attachMatched(this.onRouteMatched, this);
             },
 
             onRouteMatched() {
-                var details = this.getOwnerComponent().getModel("characters").getData();
+                const characters = this.getOwnerComponent().getModel("characters").getData();
 
-                if(!details) {
-                    alert("Character not found");
+                if(!characters) {                    
+                    MessageToast.show(
+                        this.getView().getModel("i18n").getResourceBundle().getText("characterNotFound")
+                    )
                     return;
                 }
 
-                // get character name from url
-                var url = window.location.href;
-                var parameter = decodeURI(url.split("characters/")[1]);
+                // get character name from hash
+                var parameter = this.getRouter().getHashChanger().getHash().split("/")[1];
 
-                var details = details.find(obj => {
-                    return obj.name === parameter
+                const character = characters.find(character => {
+                    return character.name === parameter
                 })
 
-                var oModel = new JSONModel(details);
+                var oModel = new JSONModel(character);
                 this.getView().setModel(oModel, "details")
             },
 

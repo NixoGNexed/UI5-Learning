@@ -1,17 +1,18 @@
 sap.ui.define([
         "sap/ui/core/UIComponent",
-        "sap/ui/Device",
         "com/myorg/ui5learning/model/models",
         'sap/ui/model/json/JSONModel',
         "sap/ui/util/Storage"
     ],
-    function (UIComponent, Device, models, JSONModel, Storage) {
+    function (UIComponent, deviceModel, JSONModel, localStorage) {
         "use strict";
 
         return UIComponent.extend("com.myorg.ui5learning.Component", {
             metadata: {
                 manifest: "json"
             },
+
+            localCharactersStorage: new localStorage(localStorage.Type.session, "characterStorage"),
 
             /**
              * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
@@ -26,28 +27,29 @@ sap.ui.define([
                 this.getRouter().initialize();
 
                 // set the device model
-                this.setModel(models.createDeviceModel(), "device");
+                this.setModel(deviceModel.createDeviceModel(), "device");
 
-                var oModel = new JSONModel();
+                let oModel = new JSONModel();
                 this.setModel(oModel, 'characters');
 
-                var storage = new Storage(Storage.Type.session, "characterStorage")
-                var localStorageContent = storage.get("characterStorage");
+                let characters = this.localCharactersStorage.get("characterStorage");
 
-                if(localStorageContent) {
-                    this.getModel('characters').setData(localStorageContent);
+                if(characters) {
+                    this.getModel('characters').setData(characters);
                     return;
                 } 
 
                 oModel.loadData('http://hp-api.herokuapp.com/api/characters');
-                oModel.attachRequestCompleted(function() {
-                    var requestedContent = oModel.getData();
+                oModel.attachRequestCompleted(function(oEvent) {
+                    if(oEvent.getParameters().success) {
+                        characters = oModel.getData();
 
-                    // only show entries with an image
-                    requestedContent = requestedContent.filter(x => x.image);
-
-                    storage.put("characterStorage", requestedContent)
-                    this.getView().getModel('characters').setData(requestedContent);
+                        // only show entries with an image
+                        characters = characters.filter(character => character.image);
+    
+                        this.localCharactersStorage.put("characterStorage", characters)
+                        this.getModel('characters').setData(characters);
+                    }
                 }.bind(this))
             }
         });
