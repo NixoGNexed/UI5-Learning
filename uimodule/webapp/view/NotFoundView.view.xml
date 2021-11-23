@@ -10,7 +10,9 @@
         showNavButton="true"
         navButtonPress="onNavBack">
         <content>
-            <Text text="404 Requested Page not found :("/>
+            <FlexBox justifyContent="Center">
+                <Title text="404 Requested Page not found :("/>
+            </FlexBox>
         </content>
     </Page>
 </mvc:View>

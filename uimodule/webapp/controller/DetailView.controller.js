@@ -24,10 +24,6 @@ sap.ui.define([
 
                 if(!characters) {                    
                     this.navTo("RouteNotFoundView", {}, true);
-                    // MessageToast.show(
-                    //     this.getView().getModel("i18n").getResourceBundle().getText("characterNotFound")
-                    // )
-                    // return;
                 }
 
                 // get character name from hash
@@ -38,7 +34,7 @@ sap.ui.define([
                 })
 
                 if(!character) {
-                    this.navTo("RouteNotFoundView", {}, true);
+                    this.navTo("RouteNotFoundView", {}, true); 
                 }
 
                 var oModel = new JSONModel(character);
