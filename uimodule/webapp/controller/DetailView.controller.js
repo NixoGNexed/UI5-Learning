@@ -13,7 +13,7 @@ sap.ui.define([
     function (Controller, History, JSONModel, MessageToast) {
         "use strict";
 
-        return Controller.extend("com.myorg.ui5learning.controller.ListView", {
+        return Controller.extend("com.myorg.ui5learning.controller.ListDetail", {
 
             onInit() {
                 this.getRouter().getRoute("RouteDetailView").attachMatched(this.onRouteMatched, this);
@@ -23,10 +23,11 @@ sap.ui.define([
                 const characters = this.getOwnerComponent().getModel("characters").getData();
 
                 if(!characters) {                    
-                    MessageToast.show(
-                        this.getView().getModel("i18n").getResourceBundle().getText("characterNotFound")
-                    )
-                    return;
+                    this.navTo("RouteNotFoundView", {}, true);
+                    // MessageToast.show(
+                    //     this.getView().getModel("i18n").getResourceBundle().getText("characterNotFound")
+                    // )
+                    // return;
                 }
 
                 // get character name from hash
@@ -35,6 +36,10 @@ sap.ui.define([
                 const character = characters.find(character => {
                     return character.name === parameter
                 })
+
+                if(!character) {
+                    this.navTo("RouteNotFoundView", {}, true);
+                }
 
                 var oModel = new JSONModel(character);
                 this.getView().setModel(oModel, "details")
