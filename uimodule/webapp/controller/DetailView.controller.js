@@ -2,15 +2,13 @@ sap.ui.define([
     "com/myorg/ui5learning/controller/BaseController",
     "sap/ui/core/routing/History",
     'sap/ui/model/json/JSONModel',
-    'sap/m/MessageToast'
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} BaseController
      * @param {typeof sap.ui.core.routing.History} History
      * @param {typeof sap.ui.model.json.JSONModel} JSONModel
-     * @param {typeof sap.m.MessageToast} MessageToast
      */
-    function (Controller, History, JSONModel, MessageToast) {
+    function (Controller, History, JSONModel) {
         "use strict";
 
         return Controller.extend("com.myorg.ui5learning.controller.DetailView", {
@@ -23,10 +21,7 @@ sap.ui.define([
                 const characters = this.getOwnerComponent().getModel("characters").getData();
 
                 if(!characters) {                    
-                    MessageToast.show(
-                        this.getView().getModel("i18n").getResourceBundle().getText("characterNotFound")
-                    )
-                    return;
+                    this.navTo("RouteNotFoundView", {}, true);
                 }
 
                 // get character name from hash
@@ -35,6 +30,10 @@ sap.ui.define([
                 const character = characters.find(character => {
                     return character.name === parameter
                 })
+
+                if(!character) {
+                    this.navTo("RouteNotFoundView", {}, true); 
+                }
 
                 var oModel = new JSONModel(character);
                 this.getView().setModel(oModel, "details")

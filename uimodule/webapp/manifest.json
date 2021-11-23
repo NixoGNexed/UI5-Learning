@@ -61,7 +61,10 @@
         "viewPath": "com.myorg.ui5learning.view",
         "controlAggregation": "pages",
         "controlId": "app",
-        "clearControlAggregation": false
+        "clearControlAggregation": false,
+        "bypassed": {
+          "target": "TargetNotFoundView"
+        }
       },
       "routes": [
         {
@@ -83,6 +86,13 @@
           "pattern": "characters/{character}",
           "target": [
             "TargetDetailView"
+          ]
+        },
+        {
+          "name": "RouteNotFoundView",
+          "pattern": "NotFound",
+          "target": [
+            "TargetNotFoundView"
           ]
         }
       ],
@@ -106,6 +116,13 @@
           "transition": "slide",
           "viewId": "DetailView",
           "viewName": "DetailView"
+        },
+        "TargetNotFoundView": {
+          "viewType": "XML",
+          "viewLevel": 2,
+          "transition": "slide",
+          "viewId": "NotFoundView",
+          "viewName": "NotFoundView"
         }
       }
     },
