@@ -2,18 +2,16 @@ sap.ui.define([
     "com/myorg/ui5learning/controller/BaseController",
     "sap/ui/core/routing/History",
     'sap/ui/model/json/JSONModel',
-    'sap/m/MessageToast'
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} BaseController
      * @param {typeof sap.ui.core.routing.History} History
      * @param {typeof sap.ui.model.json.JSONModel} JSONModel
-     * @param {typeof sap.m.MessageToast} MessageToast
      */
-    function (Controller, History, JSONModel, MessageToast) {
+    function (Controller, History, JSONModel) {
         "use strict";
 
-        return Controller.extend("com.myorg.ui5learning.controller.ListDetail", {
+        return Controller.extend("com.myorg.ui5learning.controller.DetailView", {
 
             onInit() {
                 this.getRouter().getRoute("RouteDetailView").attachMatched(this.onRouteMatched, this);
