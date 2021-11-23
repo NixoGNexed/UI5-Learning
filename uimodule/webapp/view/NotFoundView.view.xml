@@ -10,8 +10,9 @@
         showNavButton="true"
         navButtonPress="onNavBack">
         <content>
-            <FlexBox justifyContent="Center">
-                <Title text="404 Requested Page not found :("/>
+            <FlexBox direction="Column" alignItems="Center" justifyContent="Center">
+                <Text class="sapUiLargeMarginTop notFoundTitle" text="{i18n>notFoundTitle}"/>
+                <Image class="sapUiSmallMarginTop" src="./img/sadbee.png"></Image>
             </FlexBox>
         </content>
     </Page>
