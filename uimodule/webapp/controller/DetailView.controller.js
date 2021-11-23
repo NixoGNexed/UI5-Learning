@@ -22,6 +22,7 @@ sap.ui.define([
 
                 if(!characters) {                    
                     this.navTo("RouteNotFoundView", {}, true);
+                    return;
                 }
 
                 // get character name from hash
@@ -33,6 +34,7 @@ sap.ui.define([
 
                 if(!character) {
                     this.navTo("RouteNotFoundView", {}, true); 
+                    return;
                 }
 
                 var oModel = new JSONModel(character);

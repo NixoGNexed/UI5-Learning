@@ -1,4 +1,4 @@
-<mvc:View xmlns:widgets="sap.ui.integration.widgets"
+<mvc:View 
     controllerName="com.myorg.ui5learning.controller.NotFoundView"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
