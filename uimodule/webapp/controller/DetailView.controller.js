@@ -13,7 +13,7 @@ sap.ui.define([
     function (Controller, History, JSONModel, MessageToast) {
         "use strict";
 
-        return Controller.extend("com.myorg.ui5learning.controller.ListView", {
+        return Controller.extend("com.myorg.ui5learning.controller.DetailView", {
 
             onInit() {
                 this.getRouter().getRoute("RouteDetailView").attachMatched(this.onRouteMatched, this);
