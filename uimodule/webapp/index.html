@@ -25,13 +25,20 @@
         data-sap-ui-xx-supportedLanguages="de,en"
     ></script>
 </head>
-<body class="sapUiBody sapUiSizeCompact" id="content">
-    <div
-        data-sap-ui-component
-        data-name="com.myorg.ui5learning"
-        data-id="container"
-        data-settings='{"id" : "com.myorg.ui5learning"}'
-        data-handle-validation="true"
-    ></div>
+<body 
+    class="sapUiBody sapUiSizeCompact"
+     id="content"
+     data-sap-ui-component
+     data-name="com.myorg.ui5learning"
+     data-id="container"
+     data-settings='{"id" : "com.myorg.ui5learning"}'
+     data-handle-validation="true"
+     id="busyIndicator">
+
+    <div id="busyIndicator" style="text-align: center; font-family: Sans, Arial">
+        <h3>UI5 App is loading</h3>		
+        <img width="75px" src="img/blue_ui5.svg"/>
+        <h5>This may take a few moments...</h5>
+    </div>
 </body>
 </html>
