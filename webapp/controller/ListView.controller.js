@@ -11,9 +11,6 @@ sap.ui.define([
 
         return Controller.extend("com.myorg.ui5learning.controller.ListView", {
 
-            onInit() {
-            },
-
             onNavBack() {
                 var oHistory = History.getInstance();
                 var sPreviousHash = oHistory.getPreviousHash();

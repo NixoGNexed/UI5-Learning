@@ -20,7 +20,7 @@ sap.ui.define([
             onRouteMatched() {
                 const characters = this.getOwnerComponent().getModel("characters").getData();
 
-                if(!characters) {                    
+                if(!characters) {
                     this.navTo("RouteNotFoundView", {}, true);
                     return;
                 }
@@ -28,8 +28,8 @@ sap.ui.define([
                 // get character name from hash
                 var parameter = this.getRouter().getHashChanger().getHash().split("/")[1];
 
-                const character = characters.find(character => {
-                    return character.name === parameter
+                const character = characters.find(person => {
+                    return person.name === parameter
                 })
 
                 if(!character) {
